@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
-    tools:context=".MainActivity">
+    android:background="#F6F6F6">
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/grid_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
         app:alignmentMode="alignBounds"
-        app:columnCount="2"
+        app:columnCount="4"
         app:orientation="horizontal"
         app:rowCount="5"
         app:useDefaultMargins="false">
 
-       <!-- <TextView
-            android:gravity="right|bottom"
-            android:text="0"
-            android:textColor="#9D9D9D"
-            app:layout_columnSpan="4"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="3" />-->
+        <!-- <TextView
+             android:gravity="right|bottom"
+             android:text="0"
+             android:textColor="#9D9D9D"
+             app:layout_columnSpan="4"
+             app:layout_columnWeight="1"
+             app:layout_rowWeight="3" />-->
 
         <TextView
-            android:id="@+id/textview_go_to_create"
-            android:text="toCreate"
+            android:id="@+id/textview_go_to_creat"
+            style="@style/Text_Bg_Normal"
+            android:text="AC"
             app:layout_columnWeight="1"
-            app:layout_rowWeight="1"
-            style="@style/Text_Bg_Normal" />
+            app:layout_rowWeight="1" />
 
         <TextView
             android:id="@+id/textview_go_to_map"
             style="@style/Text_Bg_Normal"
-            android:text="toMap"
+            android:text="退格"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
@@ -159,4 +157,4 @@
             app:layout_rowWeight="1" />
 
     </android.support.v7.widget.GridLayout>
-</RelativeLayout>
+</ScrollView>
