@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -131,6 +134,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
                 Log.i(TAG, "metod:create#onComplete");
             }
         });
+
     }
 
     /**
@@ -181,10 +185,63 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     /**
-     * just 操作符最多可以传10个参数
+     * just 操作符 创建一个发送特定item的Observable
+     * Just操作符将一个item转换为发出该item的Observable。
+     * 为了方便使用，just总共有9个重载的方法，最多可以传10个参数，这些对象(具有相同的公共类型)将按照指定的顺序发出。
+     * Just操作符将一个项转换为发出该项的可观察对象。
+     * 与From类似，但要注意From会插入数组或iterable或类似的东西来提取要发出的项，而just简单地将数组或iterable或诸如此类的东西作为一个单独的项发出。
+     * 注意，如果将null传递给Just，它将返回一个可观察的对象，该对象将以项的形式发出null。不要错误地假设这将返回一个空的可观察对象(一个根本不发出任何项的对象)。为此，您将需要空操作符。
+     * 默认情况下，just不会对任何特定的Scheduler进行操作。
      */
     private void just() {
         Observable.just("C", "D", "E", "F", "G", "A", "B", "C", "D", "E")
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.i(TAG, "metod:just#onSubscribe: d=" + d);
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        Log.i(TAG, "metod:just#onNext: currentThread=" + Thread.currentThread());
+                        Log.i(TAG, "metod:just#onNext: s=" + s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "metod:just#onError: e=" + e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.i(TAG, "metod:just#onComplete");
+                    }
+                });
+        Observable.just("")
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.i(TAG, "metod:just#onSubscribe: d=" + d);
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        Log.i(TAG, "metod:just#onNext: currentThread=" + Thread.currentThread());
+                        Log.i(TAG, "metod:just#onNext: s=" + s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "metod:just#onError: e=" + e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.i(TAG, "metod:just#onComplete");
+                    }
+                });
+        String s = null;
+        Observable.just(s)
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
