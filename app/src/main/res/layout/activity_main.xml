@@ -28,27 +28,28 @@
 
         <TextView
             android:id="@+id/textview_go_to_create"
-            android:text="toCreate"
+            android:text="Create"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1"
             style="@style/Text_Bg_Normal" />
 
         <TextView
-            android:id="@+id/textview_go_to_map"
+            android:id="@+id/textview_go_to_transform"
             style="@style/Text_Bg_Normal"
-            android:text="toMap"
+            android:text="Transform"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <TextView
+            android:id="@+id/textview_go_to_combine"
+            style="@style/Text_Bg_Normal"
+            android:text="Combine"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
             style="@style/Text_Bg_Normal"
-            android:text="/"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-
-        <TextView
-            style="@style/Text_Bg_Normal"
-            android:text="*"
+            android:text="Filter"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 

@@ -7,9 +7,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final String TAG = MainActivity.class.getSimpleName();
-    public TextView tvGoTOCreate;
-    public TextView tvGoTOMap;
+    public TextView tvGoTOCreate, tvGoTOTramsform, getTvGoCombine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +15,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         tvGoTOCreate = findViewById(R.id.textview_go_to_create);
-        tvGoTOMap = findViewById(R.id.textview_go_to_map);
+        tvGoTOTramsform = findViewById(R.id.textview_go_to_transform);
+        getTvGoCombine = findViewById(R.id.textview_go_to_combine);
 
         tvGoTOCreate.setOnClickListener(this);
-        tvGoTOMap.setOnClickListener(this);
+        tvGoTOTramsform.setOnClickListener(this);
+        getTvGoCombine.setOnClickListener(this);
 
     }
 
@@ -30,8 +30,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.textview_go_to_create:
                 CreateActivity.start(this);
                 break;
-                case R.id.textview_go_to_map:
-                MapActivity.start(this);
+            case R.id.textview_go_to_transform:
+                TransformActivity.start(this);
+                break;
+            case R.id.textview_go_to_combine:
+                CombineActivity.start(this);
                 break;
             default:
                 break;

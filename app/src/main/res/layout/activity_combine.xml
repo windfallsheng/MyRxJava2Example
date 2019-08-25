@@ -19,51 +19,51 @@
         app:useDefaultMargins="false">
 
         <TextView
-            android:id="@+id/textview_create"
+            android:id="@+id/textview_merge"
             style="@style/Text_Bg_Normal"
-            android:text="Create"
+            android:text="Merge"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_defer"
+            android:id="@+id/textview_concat"
             style="@style/Text_Bg_Normal"
-            android:text="Defer"
+            android:text="Concat"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_just"
+            android:id="@+id/textview_concatmap"
             style="@style/Text_Bg_Normal"
-            android:text="Just"
+            android:text="ConcatMap"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_fromiterable"
+            android:id="@+id/textview_buffer"
             style="@style/Text_Bg_Normal"
-            android:text="FromIterable"
+            android:text="Buffer"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_timer"
+            android:id="@+id/textview_groupby"
             style="@style/Text_Bg_Normal"
-            android:text="Timer"
+            android:text="GroupBy"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_fromarray"
+            android:id="@+id/textview_scan"
             style="@style/Text_Bg_Normal"
-            android:text="FromArray"
+            android:text="Scan"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_interval"
+            android:id="@+id/textview_window"
             style="@style/Text_Bg_Normal"
-            android:text="Interval"
+            android:text="Window"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 

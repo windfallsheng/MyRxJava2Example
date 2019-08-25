@@ -29,8 +29,8 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
 
     private final String TAG = CreateActivity.class.getSimpleName();
 
-    TextView tvCreate, tvDefer, tvJust, tvFromIterable, tvTimer, tvFromArray, tvInterval, tvIntervalRange, tvRange;
-
+    private TextView tvCreate, tvDefer, tvJust, tvFromIterable, tvTimer, tvFromArray, tvInterval,
+            tvIntervalRange, tvRange, tvRepeat;
 
     public static void start(Context context) {
         context.startActivity(new Intent(context, CreateActivity.class));
@@ -49,6 +49,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         tvInterval = findViewById(R.id.textview_interval);
         tvIntervalRange = findViewById(R.id.textview_intervalrange);
         tvRange = findViewById(R.id.textview_range);
+        tvRepeat = findViewById(R.id.textview_Repeat);
 
         tvCreate.setOnClickListener(this);
         tvDefer.setOnClickListener(this);
@@ -59,7 +60,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         tvInterval.setOnClickListener(this);
         tvIntervalRange.setOnClickListener(this);
         tvRange.setOnClickListener(this);
-
+        tvRepeat.setOnClickListener(this);
     }
 
     @Override
@@ -91,6 +92,9 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.textview_range:
                 range();
+                break;
+            case R.id.textview_Repeat:
+                repeat();
                 break;
             default:
                 break;
@@ -459,6 +463,60 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
                     public void accept(Integer integer) throws Exception {
                         Log.i(TAG, "metod:range#accept#currentThread=" + Thread.currentThread());
                         Log.i(TAG, "metod:range#accept#integer=" + integer);
+                    }
+                });
+//                .subscribe(new Observer<Integer>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//                        Log.i(TAG, "metod:range#onSubscribe: d=" + d);
+//                    }
+//
+//                    @Override
+//                    public void onNext(Integer integer) {
+//                        Log.i(TAG, "metod:range#onNext: currentThread=" + Thread.currentThread());
+//                        Log.i(TAG, "metod:range#onNext: integer=" + integer);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//                        Log.i(TAG, "metod:range#onError: e=" + e.toString());
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        Log.i(TAG, "metod:range#onComplete");
+//                    }
+//                });
+    }
+
+    /**
+     * Range  操作符
+     * <p>
+     * 作用发送指定范围的序列，可指定范围.作用类似intervalRange，但不同的是range是无延迟发送
+     */
+    private void repeat() {
+        Observable.just("Hello World!")
+                .repeat(3)
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.i(TAG, "metod:repeat#onSubscribe: d=" + d);
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        Log.i(TAG, "metod:repeat#onNext: currentThread=" + Thread.currentThread());
+                        Log.i(TAG, "metod:repeat#onNext: s=" + s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "metod:repeat#onError: e=" + e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.i(TAG, "metod:repeat#onComplete");
                     }
                 });
 //                .subscribe(new Observer<Integer>() {
