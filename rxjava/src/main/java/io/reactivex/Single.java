@@ -3502,9 +3502,10 @@ public abstract class Single<T> implements SingleSource<T> {
      *
      * @return a {@link Disposable} reference can request the {@link Single} stop work.
      * @see <a href="http://reactivex.io/documentation/operators/subscribe.html">ReactiveX operators documentation: Subscribe</a>
+     * @param observer
      */
     @SchedulerSupport(SchedulerSupport.NONE)
-    public final Disposable subscribe() {
+    public final Disposable subscribe(Observer<String> observer) {
         return subscribe(Functions.emptyConsumer(), Functions.ON_ERROR_MISSING);
     }
 

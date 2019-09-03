@@ -19,51 +19,51 @@
         app:useDefaultMargins="false">
 
         <TextView
-            android:id="@+id/textview_map"
+            android:id="@+id/textview_filter"
             style="@style/Text_Bg_Normal"
-            android:text="Map"
+            android:text="Filter"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_flatmap"
+            android:id="@+id/textview_elementat"
             style="@style/Text_Bg_Normal"
-            android:text="FlatMap"
+            android:text="ElementAt"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_concatmap"
+            android:id="@+id/textview_debounce"
             style="@style/Text_Bg_Normal"
-            android:text="ConcatMap"
+            android:text="Debounce"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_buffer"
+            android:id="@+id/textview_distinct"
             style="@style/Text_Bg_Normal"
-            android:text="Buffer"
+            android:text="Distinct"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
             android:id="@+id/textview_first"
             style="@style/Text_Bg_Normal"
-            android:text="GroupBy"
+            android:text="First"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_scan"
+            android:id="@+id/textview_combinelatest"
             style="@style/Text_Bg_Normal"
-            android:text="Scan"
+            android:text="CombineLatest"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_window"
+            android:id="@+id/textview_join"
             style="@style/Text_Bg_Normal"
-            android:text="Window"
+            android:text="Join"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 

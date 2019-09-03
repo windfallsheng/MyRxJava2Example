@@ -7,20 +7,22 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public TextView tvGoTOCreate, tvGoTOTramsform, getTvGoCombine;
+    public TextView tvGoToCreate, tvGoToTramsform, tvGoToCombine, tvGoToFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tvGoTOCreate = findViewById(R.id.textview_go_to_create);
-        tvGoTOTramsform = findViewById(R.id.textview_go_to_transform);
-        getTvGoCombine = findViewById(R.id.textview_go_to_combine);
+        tvGoToCreate = findViewById(R.id.textview_go_to_create);
+        tvGoToTramsform = findViewById(R.id.textview_go_to_transform);
+        tvGoToCombine = findViewById(R.id.textview_go_to_combine);
+        tvGoToFilter = findViewById(R.id.textview_go_to_filter);
 
-        tvGoTOCreate.setOnClickListener(this);
-        tvGoTOTramsform.setOnClickListener(this);
-        getTvGoCombine.setOnClickListener(this);
+        tvGoToCreate.setOnClickListener(this);
+        tvGoToTramsform.setOnClickListener(this);
+        tvGoToCombine.setOnClickListener(this);
+        tvGoToFilter.setOnClickListener(this);
 
     }
 
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.textview_go_to_combine:
                 CombineActivity.start(this);
+                break;
+                case R.id.textview_go_to_filter:
+                FilterActivity.start(this);
                 break;
             default:
                 break;

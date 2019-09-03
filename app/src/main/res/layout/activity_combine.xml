@@ -40,54 +40,32 @@
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_buffer"
+            android:id="@+id/textview_zip"
             style="@style/Text_Bg_Normal"
-            android:text="Buffer"
+            android:text="Zip"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_groupby"
+            android:id="@+id/textview_startwith"
             style="@style/Text_Bg_Normal"
-            android:text="GroupBy"
+            android:text="StartWith"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_scan"
+            android:id="@+id/textview_combinelatest"
             style="@style/Text_Bg_Normal"
-            android:text="Scan"
+            android:text="CombineLatest"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
 
         <TextView
-            android:id="@+id/textview_window"
+            android:id="@+id/textview_join"
             style="@style/Text_Bg_Normal"
-            android:text="Window"
+            android:text="Join"
             app:layout_columnWeight="1"
             app:layout_rowWeight="1" />
-
-        <TextView
-            android:id="@+id/textview_intervalrange"
-            style="@style/Text_Bg_Normal"
-            android:text="IntervalRange"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-
-        <TextView
-            android:id="@+id/textview_range"
-            style="@style/Text_Bg_Normal"
-            android:text="Range"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-
-        <TextView
-            android:id="@+id/textview_Repeat"
-            style="@style/Text_Bg_Normal"
-            android:text="Repeat"
-            app:layout_columnWeight="1"
-            app:layout_rowWeight="1" />
-
 
     </android.support.v7.widget.GridLayout>
 </RelativeLayout>

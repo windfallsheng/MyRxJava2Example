@@ -48,6 +48,7 @@
             app:layout_rowWeight="1" />
 
         <TextView
+            android:id="@+id/textview_go_to_filter"
             style="@style/Text_Bg_Normal"
             android:text="Filter"
             app:layout_columnWeight="1"

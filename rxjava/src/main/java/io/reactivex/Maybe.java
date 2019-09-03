@@ -4185,9 +4185,10 @@ public abstract class Maybe<T> implements MaybeSource<T> {
      * @return a {@link Disposable} reference with which the caller can stop receiving items before
      *         the Maybe has finished sending them
      * @see <a href="http://reactivex.io/documentation/operators/subscribe.html">ReactiveX operators documentation: Subscribe</a>
+     * @param observer
      */
     @SchedulerSupport(SchedulerSupport.NONE)
-    public final Disposable subscribe() {
+    public final Disposable subscribe(Observer<Integer> observer) {
         return subscribe(Functions.emptyConsumer(), Functions.ON_ERROR_MISSING, Functions.EMPTY_ACTION);
     }
 

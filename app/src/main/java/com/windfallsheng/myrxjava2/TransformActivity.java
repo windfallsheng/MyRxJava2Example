@@ -8,9 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
@@ -28,8 +26,7 @@ public class TransformActivity extends AppCompatActivity implements View.OnClick
 
     private final String TAG = TransformActivity.class.getSimpleName();
 
-    private TextView tvMap, tvFlatMap, tvConcatMap, tvBuffer, tvGroupBy, tvScan, tvWindow,
-            tvIntervalRange, tvRange, tvRepeat;
+    private TextView tvMap, tvFlatMap, tvConcatMap, tvBuffer, tvGroupBy, tvScan, tvWindow;
 
     public static void start(Context context) {
         context.startActivity(new Intent(context, TransformActivity.class));
@@ -43,12 +40,9 @@ public class TransformActivity extends AppCompatActivity implements View.OnClick
         tvFlatMap = findViewById(R.id.textview_flatmap);
         tvConcatMap = findViewById(R.id.textview_concatmap);
         tvBuffer = findViewById(R.id.textview_buffer);
-        tvGroupBy = findViewById(R.id.textview_groupby);
+        tvGroupBy = findViewById(R.id.textview_first);
         tvScan = findViewById(R.id.textview_scan);
         tvWindow = findViewById(R.id.textview_window);
-//        tvIntervalRange = findViewById(R.id.textview_intervalrange);
-//        tvRange = findViewById(R.id.textview_range);
-//        tvRepeat = findViewById(R.id.textview_Repeat);
 
         tvMap.setOnClickListener(this);
         tvFlatMap.setOnClickListener(this);
@@ -57,10 +51,6 @@ public class TransformActivity extends AppCompatActivity implements View.OnClick
         tvGroupBy.setOnClickListener(this);
         tvScan.setOnClickListener(this);
         tvWindow.setOnClickListener(this);
-//        tvInterval.setOnClickListener(this);
-//        tvIntervalRange.setOnClickListener(this);
-//        tvRange.setOnClickListener(this);
-//        tvRepeat.setOnClickListener(this);
     }
 
     @Override
@@ -78,7 +68,7 @@ public class TransformActivity extends AppCompatActivity implements View.OnClick
             case R.id.textview_buffer:
                 buffer();
                 break;
-            case R.id.textview_groupby:
+            case R.id.textview_first:
                 groupBy();
                 break;
             case R.id.textview_scan:
@@ -86,15 +76,6 @@ public class TransformActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.textview_window:
                 window();
-                break;
-            case R.id.textview_intervalrange:
-                intervalRange();
-                break;
-            case R.id.textview_range:
-                range();
-                break;
-            case R.id.textview_Repeat:
-                repeat();
                 break;
             default:
                 break;
@@ -435,139 +416,6 @@ public class TransformActivity extends AppCompatActivity implements View.OnClick
                         Log.i(TAG, "metod:window#onComplete");
                     }
                 });
-    }
-
-    private void intervalRange() {
-        /**
-         *  参数1：起始发送值
-         *  参数2：发送数量
-         *  参数3：首次发送延迟事件
-         *  参数4：每次发送事件间隔
-         *  参数5：时间单位
-         *
-         */
-        Observable.intervalRange(3, 7, 3, 5, TimeUnit.SECONDS)
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) throws Exception {
-                        Log.i(TAG, "metod:intervalRange#accept#currentThread=" + Thread.currentThread());
-                        Log.i(TAG, "metod:intervalRange#accept#aLong=" + aLong);//从0开始输出
-                    }
-                });
-//                .subscribe(new Observer<Long>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        Log.i(TAG, "metod:intervalRange#onSubscribe: d=" + d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(Long aLong) {
-//                        Log.i(TAG, "metod:intervalRange#onNext: currentThread=" + Thread.currentThread());
-//                        Log.i(TAG, "metod:intervalRange#onNext: aLong=" + aLong);
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Log.i(TAG, "metod:intervalRange#onError: e=" + e.toString());
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        Log.i(TAG, "metod:intervalRange#onComplete");
-//                    }
-//                });
-    }
-
-    /**
-     * Range  操作符
-     * <p>
-     * 作用发送指定范围的序列，可指定范围.作用类似intervalRange，但不同的是range是无延迟发送
-     */
-    private void range() {
-        Observable.range(3, 7)
-                .subscribe(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) throws Exception {
-                        Log.i(TAG, "metod:range#accept#currentThread=" + Thread.currentThread());
-                        Log.i(TAG, "metod:range#accept#integer=" + integer);
-                    }
-                });
-//                .subscribe(new Observer<Integer>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        Log.i(TAG, "metod:range#onSubscribe: d=" + d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(Integer integer) {
-//                        Log.i(TAG, "metod:range#onNext: currentThread=" + Thread.currentThread());
-//                        Log.i(TAG, "metod:range#onNext: integer=" + integer);
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Log.i(TAG, "metod:range#onError: e=" + e.toString());
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        Log.i(TAG, "metod:range#onComplete");
-//                    }
-//                });
-    }
-
-    /**
-     * Range  操作符
-     * <p>
-     * 作用发送指定范围的序列，可指定范围.作用类似intervalRange，但不同的是range是无延迟发送
-     */
-    private void repeat() {
-        Observable.just("Hello World!")
-                .repeat(3)
-                .subscribe(new Observer<String>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        Log.i(TAG, "metod:repeat#onSubscribe: d=" + d);
-                    }
-
-                    @Override
-                    public void onNext(String s) {
-                        Log.i(TAG, "metod:repeat#onNext: currentThread=" + Thread.currentThread());
-                        Log.i(TAG, "metod:repeat#onNext: s=" + s);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.i(TAG, "metod:repeat#onError: e=" + e.toString());
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        Log.i(TAG, "metod:repeat#onComplete");
-                    }
-                });
-//                .subscribe(new Observer<Integer>() {
-//                    @Override
-//                    public void onSubscribe(Disposable d) {
-//                        Log.i(TAG, "metod:range#onSubscribe: d=" + d);
-//                    }
-//
-//                    @Override
-//                    public void onNext(Integer integer) {
-//                        Log.i(TAG, "metod:range#onNext: currentThread=" + Thread.currentThread());
-//                        Log.i(TAG, "metod:range#onNext: integer=" + integer);
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable e) {
-//                        Log.i(TAG, "metod:range#onError: e=" + e.toString());
-//                    }
-//
-//                    @Override
-//                    public void onComplete() {
-//                        Log.i(TAG, "metod:range#onComplete");
-//                    }
-//                });
     }
 
 }
